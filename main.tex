@@ -1,0 +1,1004 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[affil-it]{authblk}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+
+\title{Complex Analysis: Important Results}
+\author{Alexander Rambasek}
+\affil[]{MATH 324: Introduction to Complex Analysis}
+\affil[]{Case Western Reserve University}
+
+\affil[]{}
+
+\theoremstyle{definition}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\begin{document}
+	\maketitle
+	
+	%-------DEFINITIONS-------%
+	
+	\begin{definition}
+		\emph{(Multiplication in $\mathbb{C}$)}
+		Let $z$, $w$ $\in \mathbb{C}$. The product $\textbf{zw}$ is
+		the complex number whose polar coordinates are $r = |z||w|$ and
+		$\theta = \alpha + \beta$, where $\alpha$ and $\beta$ are the polar angles of $z$ and $w$. Equivalently, if $z = x + \textit{i}y$ and $w = p + \textit{i}q$, then $zw = xp - yq + \textit{i}(xq + yp)$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $z = x + \textit{i}y$ $\in \mathbb{C}$. The \textbf{modulus}, or \textbf{absolute value}, of $z$ is denoted $|z|$, and is defined as follows:
+		\begin{center}
+			$|z| = \sqrt{x^2 + y^2}$.
+		\end{center}
+	\end{definition}
+	
+	\begin{definition}
+		Let $z = x + \textit{i}y$ $\in \mathbb{C}$. The \textbf{complex conjugate} of z is denoted $\overline{z}$, and is defined as follows:
+		\begin{center}
+			$\overline{z} = x - \textit{i}y$.
+		\end{center}
+	\end{definition}
+	
+	\begin{definition}
+		Let $z$ $\in \mathbb{C}$, $z \neq 0$. The polar angle of $z$ is called the \textbf{argument}, and denoted arg($z$). The value of arg($z$) in the range $[-\pi, \pi)$ is called the \textbf{principle value}, and is denoted Arg(z).
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Circles)}
+		The circle with center $c \in \mathbb{R}$ and radius $r \in \mathbb{R}$, $r > 0$ is parameterized by the equation $|z - c| = r$, $z$ $\in \mathbb{C}$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Lines)}
+		Consider a line $L$. Let $c \in \mathbb{C}$ represent a point on the line, and let $d \in \mathbb{C}, d \neq 0$ represent the direction of the line. The \textbf{parametric equation} of $L$ is written as $z(t) = ct + d$, for $t \in \mathbb{R}$. The \textbf{intrinsic equation} of $L$ is written as $\Re{[(z - c)i\overline{d}]} = 0$. For a (nonvertical) straight line $y = mx + b$, $m$ and $b$ real, the equation can be formulated as $\Re{[(m+i)z + b]} = 0$. Moreover, for $Px + Qy = K$, we get $\Re{[z(P - iQ)]} = K$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $p \in \mathbb{C}$. The \textbf{translation} $T_{p}$ is defined as $T_{p}(z) = z + p$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $u = \cos{\theta} + i \sin{\theta}$. The \textbf{rotation} $R_{\theta}$ is defined as $R_{\theta}(z) = u \cdot z$ (counterclockwise rotation about the origin by angle $\theta$).
+	\end{definition}
+	
+	\begin{definition}
+		Let $z \in \mathbb{C}$, $a \in \mathbb{R}$, $a > 0$. The \textbf{scaling} $S_{a}$ is defined as $S_{a}(z) = a \cdot z$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $z \in \mathbb{C}$, $b \in \mathbb{C}$. The \textbf{multiplication} operator $M_{b}$ is defined as $M_{b}(z) = b \cdot z$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $z \in \mathbb{C}$. The \textbf{inversion} mapping, $J$, is defined as $J(z) = \frac{1}{z}$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $p \in \mathbb{C}$ and $r > 0$. The \textbf{open ball} of radius $r$ about $p$ is the set $\{z \; \, | \; \, |z-p| < r\}$.
+	\end{definition}
+	
+	\begin{definition}
+		If $p \in S \subset \mathbb{C}$, then $p$ is an \textbf{interior point} of $S$ if $S$ contains some open ball about $p$.
+	\end{definition}
+	
+	\begin{definition}
+		$S \subset \mathbb{C}$ is an \textbf{open set} if every point of $S$ is an interior point of $S$.
+	\end{definition}
+	
+	\begin{definition}
+		$S \subset \mathbb{C}$ is \textbf{closed} if its complement $\mathbb{C} \setminus S$ is open.
+	\end{definition}
+	
+	\begin{definition}
+		$p \in \mathbb{C}$ is a \textbf{boundary point} of $S$ (denoted $p \in \partial S$) if it is neither interior to $S$ nor to its complement.
+	\end{definition}
+	
+	\begin{definition}
+		$S \subset \mathbb{C}$ is a \textbf{neighborhood} of $p \in \mathbb{C}$ if $p$ is an interior point of $S$.
+	\end{definition}
+	
+	\begin{definition}
+		$N$ is a \textbf{neighborhood of infinity} if $\{0\} \cup \{\frac{1}{z} \; \, | \; \, z \in N \}$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Connectedness and Domains)}
+		Consider an open subset $S \subset \mathbb{C}$.
+		\begin{enumerate}[label=\alph*.]
+			\item $S \subset \mathbb{C}$ is \textbf{disconnected} if it is the disjoint union of two nonempty open sets.
+			\item $S \subset \mathbb{C}$ is \textbf{connected} if it is not disconnected.
+			\item $S$ is \textbf{polygonally connected} if for any $z$, $w \in S$ there is a finite sequence of points $p_{0}$, $p_{1}$, $... p_{n}$ with $z = p_{0}$, $w = p_{n}$, such that $S$ contains the line segment $p_{j-1}p_{j}$ for each $1 \leq j \leq n$.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{domain} is an open, connected subset of $\mathbb{C}$.
+	\end{definition}
+	
+	\begin{definition}
+		A subset $S \subset \mathbb{C}$ is \textbf{convex} if for any $z, w \in S$, the line segment from $z$ to $w$ is in $S$.
+	\end{definition}
+	
+	\begin{definition}
+		A set $K$ is \textbf{compact} if, whenever there is a collection of open sets whose union contains $K$, then there is a finite sub-collection of the open sets that contains $K$.
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{function} $f : X \rightarrow Y$ is a rule assigning a single point $f(x) \in Y$ to each point $x \in X$.
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{image}, or \textbf{range}, of $f$ is the set $\{ f(x) \; \, | \; \, x \in X\} \subset Y$.
+	\end{definition}
+	
+	\begin{definition}
+		$\lim_{z \to p} f(z) = L$ means that $\forall \epsilon > 0$, $\exists \delta > 0$ such that $0 < |z - p| < \delta \implies |f(z) - L| < \epsilon$.
+	\end{definition}
+	
+	\begin{definition}
+		$\lim_{z \to \infty} f(z) = L$ means that $\forall \epsilon > 0$, $\exists r > 0$ such that $|z| > r \implies |f(z) - L| < \epsilon$.
+	\end{definition}
+	
+	\begin{definition}
+		A function $f$ is \textbf{continuous} at $p \in \mathbb{C}$ if $f$ is defined on a neighborhood of $p$ and if $\lim_{z \to p} f(z) = f(p)$.
+	\end{definition}
+	
+	\begin{definition}
+		If $f: X \rightarrow Y$ and $S \subset Y$, then the \textbf{pre-image} of $S$ under $f$, denoted $f^{-1}(S)$, is the set of all $x \in X$ such that $f(x) \in S$.
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{sequence} $f(n) = a(n) : \mathbb{N} \rightarrow \mathbb{C}$ converges to $L$ if $\lim_{n \to \infty} f(n) = L$.
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{series} in $\mathbb{C}$ is a sequence $s_{n} = \sum_{j=1}^{n} a_{j}$ of partial sums of another sequence $a_{n}$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Exponential)}
+		For $z \in \mathbb{C}$, $e^{z} = e^{x + iy} = e^{x}e^{iy} = e^{x}[\cos{(y)} + i \sin{(y)}]$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Logarithm)}
+		The \textbf{logarithm} function is a set-valued function defined on $\mathbb{C} \backslash \{0\}$ that sends a point $w$ to the set of all of its pre-images under the exponential function: $\log(w) = \ln|w| + i$ $\text{arg}(w)$.
+	\end{definition}
+	
+	\begin{definition}
+		Let $D = \mathbb{C} \; \backslash \; \{tc \; | \; t \geq 0\}$ for fixed $c \neq 0$. Let $\theta = \text{Arg}(z)$. There exists a single-valued \textbf{branch} of the logarithm continuous on all of $D$, defined as $\ln{|z|} + i a(z)$, where $a(z)$ is the value of $\text{arg}(z)$ lying in the range $[\theta, \theta + 2\pi)$.
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{principle value} of the logarithm is the single-valued function $\text{Log}(w)$ = $\ln|w| + i$ $\text{Arg}(w)$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Arbitrary Powers)}
+		For $a$, $z \in \mathbb{C} \backslash \{0\}$, $a^{z}$ is defined to be the multi-valued function $e^{z \text{log}(a)}$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Hyperbolic Functions)}
+		The \textbf{hyperbolic cosine} is defined as $\cosh{(z)} = \frac{e^{z} + e^{-z} }{2}$. The \textbf{hyperbolic sine} is defined as $\sinh{(z)} = \frac{e^{z} - e^{-z} }{2}$.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Sines and Cosines)}
+		For $z \in \mathbb{C}$, $\cos{(z)} = \frac{e^{i z} + e^{-i z} }{2}$, and $\sin{(z)} = \frac{e^{i z} - e^{-i z} }{2 i}$
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{curve} is a vector-valued function of a single variable; it is \textbf{smooth} if it is continuously differentiable. It is \textbf{piecewise smooth} if it is continuous and its domain, which is an interval, is a union of finite number of subintervals, and the curve is smooth on each of these.
+	\end{definition}
+	
+	\begin{definition}
+		A piecewise smooth simple closed curve is \textbf{positively oriented} if the inside of the curve is immediately to the left as you proceed around the curve in the given orientation.
+	\end{definition}
+	
+	\begin{definition}
+		If $\gamma : [a,b] \rightarrow \mathbb{C}$ is a continuous curve in $\mathbb{C}$, then the \textit{reversed curve}, denoted $-\gamma$, is another curve defined as:
+		$$(-\gamma)(s) = \gamma(a + b - s).$$
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Concatenation of Curves)}
+		If $\alpha : [a,b] \rightarrow \mathbb{C}$ and $\beta : [b,c] \rightarrow \mathbb{C}$ are curves with $\alpha(b) = \beta(b)$, the curve $\alpha + \beta : [a,c] \rightarrow \mathbb{C}$ is defined by:
+		\begin{eqnarray*}
+			\textbf (\alpha + \beta)(t) = \left\{\def\arraystretch{1.2}%
+			\begin{array}{@{}c@{\quad}r@{}}
+				\alpha(t) & \;\text{if $a \leq t \leq b$}\\
+				\beta(t) & \;\text{if $b \leq t \leq c$}\\
+			\end{array}\right.
+		\end{eqnarray*}
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{VH chain} is a piecewise smooth curve whose pieces are alternately horizontal and vertical.
+	\end{definition}
+	
+	\begin{definition}
+		\emph{(Analytic Functions)}
+		Suppose $D$ is a domain, $p \in D$, and $f : D \rightarrow \mathbb{C}$. Then $f$ is \textbf{differentiable} at $p$, with \textbf{derivative} $f^{\prime}(p) \in \mathbb{C}$ if:
+		$$\lim_{z \rightarrow p} \frac{f(z) - f(p)}{z - p} = f^{\prime}(p) \; \; \bigg( = \lim_{h \rightarrow 0} \frac{f(z + h) - f(z)}{h} \bigg)$$
+		and this limit exists. If $f$ is differentiable at every $p \in D$, then $f$ is said to be \textbf{analytic} on $D$. If $f$ is analytic on all of $\mathbb{C}$, then $f$ is called \textbf{entire}.
+	\end{definition}
+	
+	\begin{definition}
+		Suppose $U$ is an open subset of $\mathbb{C}$ and $w : U \rightarrow \mathbb{R}$. Then $w$ is \textbf{harmonic} on $U$ if $\forall z \in U, w_{xx}(z) + w_{yy}(z) = 0$.
+	\end{definition}
+	
+	\begin{definition}
+		If $D$ is a domain in $\mathbb{C}$, then two real-valued functions $u$ and $w$ on $D$ with continuous second order partials are \textbf{harmonic conjugates} if either is harmonic and they satisfy the Cauchy-Riemann equations.
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{power series} in $z \in \mathbb{C}$ is $\sum_{n=0}^{\infty} a_{n}(z-p)^{n}$, where $a_{n} \in \mathbb{C}$. The \textbf{radius of convergence} $0 \leq r < \infty$ of the power series is such that the series converges absolutely at any $z$ with $|z-p| < r$, and it diverges at $z$ if $|z-p| > r$.
+	\end{definition}
+	
+	\begin{definition}
+		A domain $D$ is called \textbf{simply connected} if $D$ contains the inside of every simple closed curve in $D$.
+	\end{definition}
+	
+	\begin{definition}
+		A \textbf{graph} $G$ in $\mathbb{C}$ is a finite collection of points, called the \textbf{vertices} of $G$ along with a finite collection of simple curves, called the \textbf{edges} of $G$, with the restrictions that both ends of any edge are among the vertices, and that any intersection of two edges occurs at an end of each.
+	\end{definition}
+	
+	\begin{definition}
+		A graph $G$ is a \textbf{directed graph} if each of its edges is oriented such that it has an \textbf{initial vertex} and a \textbf{terminal vertex}.
+	\end{definition}
+	
+	\begin{definition}
+		The \textbf{parity} of a vertex $v$ is the difference between the number of edges ending at $v$ and the number of edges beginning at $v$. A graph $G$ is called a \textbf{parity-0 graph} if the parity of every vertex in $G$ is 0.
+	\end{definition}
+	
+	\begin{definition}
+		An ordered collection of edges $(E_{i})$ of a graph $G$ is a \textbf{semisimple closed edge-path} if the $E_{j}$ are all distinct, the end of $E_{j}$ is the start of $E_{j+1}$, and the end of $E_{n}$ is the start of $E_{1}$. A semisimple closed edge-path is \textbf{simple} if the only times that the end of an edge and the start of an edge are the same are those listed above. Removing the edges of a semisimple closed edge path from a graph preserves the parity of the graph.
+	\end{definition}
+	
+	\begin{definition}
+		If $X$ is a nonempty subset of $\mathbb{C}$, the \textbf{diameter} of $X$ is the supremum of $|z-w|$ for all pairs of points $z, w$ of $X$ (this may be infinite).
+	\end{definition}
+	
+	\begin{definition}
+		Suppose $D$ is a domain and $f: D \rightarrow \mathbb{C}$ is analytic, but not constant. Let $p \in D$ and $f(p) = 0$. We say that $p$ is a \textbf{zero of order k} of $f$ if $k$ is the smallest natural number $n$ such that $f^{(n)}(p) \neq 0$.
+	\end{definition}
+	
+	\begin{definition}
+		We call $p$ a \textbf{singularity} of a function $f$ if $f$ is not differentiable at $p$. This can happen for two reasons:
+		\begin{enumerate}[label=\alph*.]
+			\item $f$ is not even defined at $p$
+			\item $f$ is defined at $p$, but the limit defining the derivative does not exist.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		$p$ is an \textbf{isolated singularity} of a function $f$ if $p$ is a singularity, yet there is some $r > 0$ such that $f$ is analytic on $B_{r}(p) \backslash \{p\}$ (a \textbf{"punctured disk"}). Here, there are three possibilities:
+		\begin{enumerate}[label=\alph*.]
+			\item $|f(z)| \rightarrow \infty$ as $z \rightarrow p$. In this case we say that $f$ has a \textbf{pole} at p.
+			\item There is an $L > 0$ such that $|f(z)| < L$ for all $z \neq p$ near p. In this case we say that $f$ has a \textbf{removable singularity} at $p$.
+			\item Neither (a) nor (b); in this case we say that $f$ has an \textbf{essential singularity} at $p$.
+		\end{enumerate}
+	\end{definition}
+	
+	\begin{definition}
+		A series of the form $\sum a_{n} (z-p)^{n}$ where we allow both positive and negative values of $n$ is called a \textbf{Laurent series}.
+	\end{definition}
+	
+	\begin{definition}
+		Let $p$ be an isolated singularity of $f$, and let $\gamma$ be a small positively oriented circle centered at $p$. The \textbf{residue} of $f$ at $p$ is defined to be
+		$$\text{Res}(f;p) = \frac{1}{2 \pi i} \int_{\gamma} f(z) dz.$$
+	\end{definition}
+	
+	\begin{definition}
+		A rational function $f(z) = \frac{P(z)}{Q(z)}$ is called a \textbf{simple rational function}, if the polynomials $P$ and $Q$ satisfy the following 3 conditions:
+		\begin{enumerate}[label=\alph*.]
+			\item degree of $P <$ degree of $Q$.
+			\item $P$ and $Q$ have no roots in common.
+			\item $Q$ has no repeated roots.
+		\end{enumerate}
+	\end{definition}
+	
+	%-------THEOREMS-------%
+	
+	\begin{theorem}
+		\emph{(Properties of Addition and Multiplication)}
+		Let $z$, $w$, $r$ $\in \mathbb{C}$. Then the following hold:
+		\begin{itemize}
+			\item $z + w = w + z$
+			\item $zw = wz$
+			\item $z + (w + r) = (z + w) + r$
+			\item $z(wr) = (zw)r$
+			\item $r(z + w) = rz + rw$
+		\end{itemize}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Properties of Conjugation)}
+		Let $z$, $w$ $\in \mathbb{C}$. Let \normalfont{arg}($z$) = $\alpha$, and \normalfont{arg}($\overline{z}$) = $\alpha'$. Then the following hold:
+		\begin{itemize}
+			\item $\overline{\overline{z}} = z$
+			\item $\alpha'$ = $-\alpha$
+			\item $z \cdot \overline{z} = |z|^2 \geq 0$
+			\item $\overline{z + w} = \overline{z} + \overline{w}$
+			\item $\overline{zw} = \overline{z} \cdot \overline{w}$
+		\end{itemize}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Powers and Roots)}
+		Let $z$ $\in \mathbb{C}$. Then the following hold:
+		\begin{itemize}
+			\item $|z^n| = |z|^n$
+			\item \normalfont{arg}($z^n$) = $n \cdot$ \normalfont{arg($z$)}
+		\end{itemize}
+		If, additionally, $z$ is an $n^{th}$ root of $w$ $\in \mathbb{C}$, then
+		\begin{itemize}
+			\item $|z| = \sqrt[\leftroot{-2}\uproot{2}n]{|w|}$
+			\item $n \cdot$ arg($z$) = arg($w$)
+			\item $\alpha \in$ arg($w$) $\implies$ $\frac{\alpha}{n} + \frac{2 \pi k}{n} \in$ arg($z$) $\forall k \in \mathbb{Z}$
+		\end{itemize}
+	\end{theorem}
+	
+	\begin{corollary}
+		Any nonzero complex number has exactly $n$ different $n^{th}$ roots.
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Polar Representation)}
+		Let $z = x + iy \in \mathbb{C}$. Let $\alpha = $ arg($z$). The \textbf{polar representation} of $z$ is
+		$$z = |z|(\cos{\alpha} + i \sin{\alpha}).$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(De Moivre)}
+		For all $t \in \mathbb{R}$, $n \in \mathbb{N}$,
+		$$[\cos{(t)} + i \sin{(t)}]^{n} = \cos{(nt)} + i \sin{(nt)}.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		Let $z$, $w$ $\in \mathbb{C}$. $z$ is perpendicular to $w$ if and only if $\Re(\overline{z}w) = 0$.
+	\end{theorem}
+	
+	\begin{theorem}
+		Let $p \in \mathbb{C}$, $a \in \mathbb{R}$, $a > 0$, $u = \cos{\theta} + i \sin{\theta}$. Then, $T_{p}$, $R_{\theta}$, $S_{a}$, and $M_{p}$ preserve angles, map circles to circles and lines to lines, and are invertible. Their inverses are, respectively, $T_{-p}$, $R_{-\theta}$, $S_{\frac{1}{a}}$, and $M_{\frac{1}{p}}$. 
+	\end{theorem}
+	
+	\begin{corollary}
+		Let $b \in \mathbb{C}$, $a = |b|$, $\theta \in \text{arg}(b)$. Then, $M_{b} = S_{a} \circ R_{\theta}$.
+	\end{corollary}
+	
+	\begin{theorem}
+		The inversion mapping $J$ is invertible, and is its own inverse. However, it need not map circles to circles, or lines to lines.
+	\end{theorem}
+	
+	\begin{lemma}
+		\emph{(Inversion)}
+		The following holds $\forall z \in \mathbb{C}$:
+		\begin{itemize}
+			\item $J(M_{W}(z)) = M_{\frac{1}{w}}(J(z))$
+			\item $J(R_{\theta}(z)) = R_{-\theta}(J(z))$
+			\item $J(S_{a}(z)) = S_{\frac{1}{a}}(J(z))$
+			\item $\overline{J(z)} = J(\overline{z})$
+		\end{itemize}
+	\end{lemma}
+	
+	\begin{theorem}
+		The inversion mapping $J$ takes any circle not passing through zero to another circle not passing through zero.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(More About Circles)}
+		If $b \neq 0$ is in $\mathbb{C}$ and $r > 0$, but $r \neq 1$, then:
+		\begin{enumerate}[label=\alph*.]
+			\item The set $\{z \in \mathbb{C} \; \, | \; \,  r|z| = |z - b|\}$ is a circle.
+			\item The center of the circle is $\frac{b}{1 - r^2}$ and its radius is $\frac{r|b|}{|1-r^2|}$.
+			\item 0 and b are on opposite sides of this circle.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{corollary}
+		\label{circles}
+		If $p \neq q$ and $0 < r < 1$, then $r|z - p| = |z - q|$ is a circle. Additionally:
+		\begin{enumerate}[label=\alph*.]
+			\item Its center is $\frac{q - pr^2}{1 - r^2}$.
+			\item Its radius is $\frac{r|q - p|}{1 - r^2}$.
+			\item $p$ and $q$ are on opposite sides of the circle.
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{corollary}
+		In Corollary \ref{circles}, if $q > 0$ and $p = -q$, then:
+		\begin{enumerate}[label=\alph*.]
+			\item The center is at $v = q \frac{1+r^2}{1-r^2} > q > 0$.
+			\item The radius is $\frac{2r|q|}{1-r^2}$.
+			\item $q$ is inside the circle, and $-q$ is outside.
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Open and Closed Sets)}
+		\begin{enumerate}[label=\alph*.]
+			\item $S$ and $\mathbb{C} \setminus S$ have the same boundary.
+			\item $S$ is open $\iff$ $S \cap \partial S = \varnothing$.
+			\item $S$ is closed $\iff$ $\partial S \subset S$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Compactness)}
+		Subsets of $\mathbb{R}^n$ or $\mathbb{C}$ are compact if and only if they are closed and bounded.
+	\end{theorem}
+	
+	\begin{theorem}
+		$f(z) \rightarrow L \iff \Re{[f(z)]} \rightarrow \Re{[L]}$ and $\Im{[f(z)]} \rightarrow \Im{[L]}$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Limits and Arithmetic)}
+		Suppose that as $z \rightarrow p$ (or $z \rightarrow \infty$), both $f(z) \rightarrow L$ and $g(z) \rightarrow M$. Then:
+		\begin{enumerate}[label=\alph*.]
+			\item $f(z) + g(z) \rightarrow L + M$
+			\item $f(z)g(z) \rightarrow LM$
+			\item As long as $M \neq 0$, $\frac{f(z)}{g(z)} \rightarrow \frac{L}{M}.$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		A function $f$ is continuous at $p$ if and only if $\forall \epsilon > 0$, $\exists \delta > 0$ such that $|z - p| < \delta \implies |f(z) - f(p)| < \epsilon$.
+	\end{theorem}
+	
+	\begin{theorem}
+		Under the appropriate assumptions, continuous functions preserve continuity under addition, multiplication, division, and composition.
+	\end{theorem}
+	
+	\begin{theorem}
+		$f: \mathbb{C} \rightarrow \mathbb{C}$ is continuous if and only if $\forall$ open $U \subset \mathbb{C}$, $f^{-1}(U)$ is also open.
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose $X$ is a compact subset of $\mathbb{C}$ and $f : X \rightarrow \mathbb{C}$ is continuous. Then $f(X)$ is compact.
+	\end{theorem}
+	
+	\begin{corollary}
+		If $X \neq \varnothing$ is compact and $f : X \rightarrow \mathbb{R}$ is continuous, then $f$ achieves its maximum and minimum values on $X$.
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Convergence Tests)}
+		\begin{enumerate}[label=\alph*.]
+			\item $\sum_{n=1}^{\infty} a_{n} \rightarrow L \implies a_{n} \rightarrow 0$.
+			\item $a_{n} \nrightarrow 0 \implies \sum a_{n}$ does not converge.
+			\item A series of nonnegative terms either converges or diverges to $\pm \infty$
+			\item For real or complex numbers $x_{n}$, if $\sum |x_{n}|$ converges, so does $\sum x_{n}$.
+			\item If $|r| < 1$ then $\sum_{n=o}^{\infty} r^{n}$ converges to $\frac{1}{1 - r}$. Otherwise, the series diverges.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Properties of the Complex Exponential)}
+		\begin{enumerate}[label=\alph*.]
+			\item $|e^{z}| = e^{x}$
+			\item $\text{arg}(e^{z}) = y$
+			\item $e^{0} = 1$
+			\item $e^{z}e^{w} = e^{z+w}$
+			\item $e^{-z}$ = $\frac{1}{e^{z}}$
+			\item $e^{z} = e^{z + 2 \pi i}$
+			\item $e^{\overline{z}} = \overline{e^{z}}$
+			\item $e^{i \pi} = -1$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		$\log(zw) = \log(z) + \log(w)$, as sets.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Properties of Hyperbolic Functions)}
+		For $z \in \mathbb{C}$:
+		\begin{enumerate}[label=\alph*.]
+			\item $\cosh{(-z)} = \cosh{(z)}$
+			\item $\sinh{(-z)} = -\sinh{(z)}$
+			\item $\cosh^{2}{(z)} - \sinh^{2}{(z)} = 1$
+			\item For $t \in \mathbb{R}$, $[\cosh{(t)}]' = \sinh{(t)}$ and $[\sinh{(t)}]' = \cosh{(t)}$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Properties of Sines and Cosines)}
+		For $z \in \mathbb{C}$:
+		\begin{enumerate}[label=\alph*.]
+			\item $\sin^{2}{(z)} + \cos^{2}{(z)} = 1$
+			\item $\sin{(-z)} = -\sin{(z)}$
+			\item $\cos{(-z)} = \cos{(z)}$
+			\item $\cos{(\overline{z})} = \overline{\cos{(z)}}$, $\sin{(\overline{z})} = \overline{\sin{(z)}}$
+			\item $\cos{(z)} = \cosh{(i z)}$
+			\item $\sin{(z)} = -i\sinh{(i z)}$
+			\item $\cos{(i z)} = \cosh{(z)}$
+			\item $\sin{(i z)} = i \sinh{(z)}$
+			\item $\cos$, $\sin$ are unbounded.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Trig Identities)}
+		For $z, w \in \mathbb{C}$:
+		\begin{enumerate}[label=\alph*.]
+			\item $\cos{(z)} + i \sin{(z)} = e^{i z}$
+			\item $\sin{(z)}\cos{(w)} + \sin{(w)}\cos{(z)} = \sin{(z + w)}$
+			\item $\sin{(w + \frac{\pi}{2})} = \cos{(w)}$
+			\item $\sin{(w + \pi)} = -\sin{(w)}$
+			\item $\cos{(z + w)} = \cos{(z)}\cos{(w)} - \sin{(z)}\sin{(w)}$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Jordan Curve Theorem)}
+		The complement of the image of a simple closed curve in $\mathbb{C}$ is a pair of disjoint domains, and the image of the curve is the boundary of each of these. Of the two domains, one is bounded (the
+		inside of the curve), and the other is unbounded (the outside of the curve).
+	\end{theorem}
+	
+	\begin{theorem}
+		Let $z = x + iy \in \mathbb{C}$. The principal argument of $z$ is:
+		\begin{eqnarray*}
+			\textbf{Arg}(z)= \left\{\def\arraystretch{1.2}%
+			\begin{array}{@{}c@{\quad}r@{}}
+				\arctan (\frac{y}{x}) & \;\text{if $x>0$, $y\in \mathbb R$}\\
+				\arctan (\frac{y}{x})+\pi  & \;\text{if $x <0$, $y\geq 0$}\\
+				\arctan (\frac{y}{x})-\pi  & \;\text{if $x < 0$, $y < 0$}\\
+				\frac{\pi}{2} & \;\text{if $x=0$, $y> 0$}\\
+				-\frac{\pi}{2} & \;\text{if $x=0$, $y < 0$}\\
+				\text{undefined}& \;\text{if $x=0$, $y=0$}\\
+			\end{array}\right.
+		\end{eqnarray*}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Integral along a parameterized curve)}
+		If $\gamma : [a,b] \rightarrow \mathbb{C}$ is continuous, then 
+		$$\int_{a}^{b} \gamma (t) \, dt = \int_{a}^{b} \Re{[\gamma(t)] \, dt} + i \int_{a}^{b} \Im{[\gamma(t)] \, dt}.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Integral of a function along a parameterized curve)}
+		If $\gamma : [a,b] \rightarrow \mathbb{C}$ is a smooth curve with image $S \subset \mathbb{C}$, and $f : S \subset \mathbb{C} \rightarrow \mathbb{C}$ is a continuous function, then the line integral of $f$ over $\gamma$ is 
+		$$\int_{a}^{b} f(\gamma (t)) \gamma^{\prime}(t) \, dt.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Linearity Properties of Line Integrals)}
+		\begin{enumerate}[label=\alph*.]
+			\item $\int_{\gamma} f + g \, dz = \int_{\gamma} f \, dz + \int_{\gamma} g \, dz$
+			\item $\forall c \in \mathbb{R}, \int_{\gamma} c f \, dz = c \int_{\gamma} f \, dz$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Line Integral of Reversed Curve)}
+		$$\int_{-\gamma} f \, dz = - \int_{\gamma} f \, dz$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Line Integral over Concatenated Curves)}
+		$$\int_{\alpha + \beta} f = \int_{\alpha} f + \int_{\beta} f$$
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose $\phi : [a,b] \rightarrow \mathbb{C}$ is continuous. Then:
+		$$\int_{a}^{b}|\phi(t)| \, dt \geq \bigg | \int_{a}^{b}\phi(t) \, dt \bigg |$$
+	\end{theorem}
+	
+	\begin{corollary}
+		If $f$ is continuous and $\gamma$ is piecewise smooth, then
+		$$\bigg | \int_{\gamma} f \, dz \bigg | \leq (\max | f(\gamma(t)) |) (\text{length of} \gamma).$$
+	\end{corollary}
+	
+	\begin{lemma}
+		\emph{(Product Rule for Differentiable Curves)}
+		If $f$, $g : [a,b] \rightarrow \mathbb{C}$ are both differentiable curves, then so is $fg$, and
+		$$(fg)^{\prime} = f^{\prime}g + fg^{\prime}.$$
+	\end{lemma}
+	
+	\begin{corollary}
+		Suppose $g : [a,b] \rightarrow \mathbb{C}$ is a differentiable curve. Then:
+		\begin{enumerate}[label=\alph*.]
+			\item So is $g \overline{g} = |g|^{2}.$
+			\item So is $g^{m}$ for any $m \geq 1$, and $[g^{m}]^{\prime} = m g^{m-1} g^{\prime}.$
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Quotient Rule for Curves)}
+		If $f: [a,b] \rightarrow \mathbb{C}$ is a differentiable curve that is never 0, then $\frac{1}{f}$ is also a differentiable curve, and
+		$$\bigg(\frac{1}{f}\bigg)^{\prime} =  \frac{-f^{\prime}}{f^2}.$$
+	\end{theorem}
+	
+	\begin{corollary}
+		Suppose $f,g: [a,b] \rightarrow \mathbb{C}$ are differentiable curves and $g$ is never zero.
+		\begin{enumerate}[label=\alph*.]
+			\item $\frac{f}{g}$ is a differentiable curve, and $\big(\frac{f}{g}\big)^{\prime} = \frac{f^{\prime}g - f g^{\prime}}{g^2}$
+			\item For $m \geq 1$, $\frac{1}{g^m}$ is a differentiable curve, and $(g^{-m})^{\prime} = -mg^{-m-1}g^{\prime}$
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Line integral of $z^{m}$ over a curve)}
+		Suppose $\gamma : [a,b] \rightarrow \mathbb{C}$ is piecewise smooth and $m \neq -1$ is an integer. Then,
+		$$\int_{\gamma} z^{m} dz = \frac{\gamma(b)^{m+1} - \gamma(a)^{m+1}}{m+1}.$$
+	\end{theorem}
+	
+	\begin{corollary}
+		Suppose $\gamma$ is a piecewise smooth closed curve, and $m \neq -1$ is an integer. Then,
+		$$\int_{\gamma} z^{m} dz = 0.$$
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Green's Theorem)}
+		Let $\{\gamma_{j}\}$ be a finite disjoint collection of piecewise smooth simple closed curves. Let each $\gamma_{j}$ be inside of some curve $\gamma_{0}$, and any two of the $\gamma_{j}$'s outside of each other. Let $D$ denote the region inside of $\gamma_{0}$ and outside all of the other $\gamma_{j}$'s. Define $\partial D = \cup_{k=0}^{n} \gamma_{k}$ with a positive orientation. Define $\int_{\partial D} f dz$ to mean $\sum_{k=0}^{n} \int_{\gamma_{k}} f dz$. Let $G$ be an open set containing $D$ and $\partial D$. Let $f : G \rightarrow \mathbb{C}$ be continuous and write $f(z) = f(x + iy) = u(x + iy)  + iw(x + iy)$. Suppose the partial derivatives $u_{x}, u_{y}, w_{x}, w_{y}$ exist and are continuous on $G$. Then,
+		$$\int_{\partial D} f dz = i \int \int_{D} \bigg[\frac{\partial f}{\partial x} + i \frac{\partial f}{\partial y}\bigg] dxdy = i\bigg(\int \int_{D} \frac{\partial f}{\partial x} dxdy\bigg) - \int \int_{D} \frac{\partial f}{\partial y} dxdy.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose $\gamma$ is a piecewise smooth, positively oriented, simple closed curve, and $p \in \mathbb{C}$ is not in the image of $\gamma$. Then:
+		\begin{eqnarray*}
+			\int_{\gamma} \frac{1}{z - p} dz = \left\{\def\arraystretch{1.2}%
+			\begin{array}{@{}c@{\quad}r@{}}
+				2 \pi i & \;\text{if $p \in \gamma$}\\
+				0 & \;\text{otherwise}\\
+			\end{array}\right.
+		\end{eqnarray*}
+	\end{theorem}
+	
+	\begin{theorem}
+		If $D$ is an open disk containing $p$ and $q$, there there is a VH chain in $D$ from $p$ to $q$.
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose $p, q \in \mathbb{C}$ and that $D$ is an open set containing the closed line segment $L$ going from $p$ to $q$. Then there is a VH chain in $D$ going from $p$ to $q$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Characterization of domains)}
+		An open set $D$ is a domain if and only if $\forall \, p, q \in D, \exists$ a VH chain in $D$ going from $p$ to $q$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Characterization of constant functions on domains)}
+		Suppose $D$ is a domain and $u : D \rightarrow \mathbb{R}$ is smooth. If both $u_{x}, u_{y}$ are identically 0 on $D$, then $u$ is constant on $D$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Sums and constant multiples of differentiable functions)}
+		Suppose that $f^{\prime}(p)$ and $g^{\prime}(p)$ exist, and that $c \in \mathbb{C}$ is a constant. Then:
+		\begin{enumerate}[label=\alph*.]
+			\item $f + g$ is differentiable at $p$, with derivative $f^{\prime}(p) + g^{\prime}(p)$
+			\item $c f$ is differentiable at $p$, with derivative $c \cdot f^{\prime}(p)$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Continuity Estimate)}
+		Suppose $f$ is differentiable at $p$. Let $\epsilon > 0$. Then there is a $\delta > 0$ such that for any $z$ with $|z - p| < \delta$,
+		$$|f(z) - f(p)| \leq (|f^{\prime}(p)| + \epsilon) |z - p|.$$
+		It follows that if $f$ is differentiable at $p$, then $f$ is continuous at $p$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Product Rule)}
+		If $f(z)$ and $g(z)$ are both differentiable at $p$, then so is $h(z) = f(z)g(z)$, and
+		$$h^{\prime}(p) = f^{\prime}(p)g(p) + f(p)g^{\prime}(p).$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Chain Rule)}
+		If $f$ is differentiable at $p$ and $g$ is differentiable at $p$, then $g \circ f$ is differentiable at $p$, and
+		$$(g \circ f)^{\prime}(p) = g^{\prime}(f(p))f^{\prime}(p).$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Quotient Rule)}
+		Suppose $f$ and $g$ are functions that are both differentiable at $p$, and that $g(p) \neq 0$. Let $h(z) = \frac{f(z)}{g(z)}$. Then $h$ is differentiable at $p$, and
+		$$h^{\prime}(p) = \frac{f^{\prime}(p)g(p) - f(p)g^{\prime}(p)}{g(p)^2}.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Cauchy-Riemann Equations)}
+		Suppose $D \subset \mathbb{C}$ is a domain, and that $f : D \rightarrow \mathbb{C}$ is analytic. Write
+		$$f(z) = f(x + iy) = u(x + iy) + iw(x + iy)).$$
+		Then the partial derivatives of $u$ and $w$ with respect to $x$ and $y$ exist, $u_{x} = w_{y}$, and $u_{y} = -w_{x}$, so that $u_{x}u_{y} + w_{x}w_{y} = 0$.
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose that $u, w$ are real-valued functions defined on a domain $D$, that the second order partial derivatives of $u$ and $w$ exist and are continuous, and that $u, w$ satisfy the Cauchy-Riemann equations. Then $u$ and $w$ are harmonic on $D$.
+	\end{theorem}
+	
+	\begin{corollary}
+		If $f = u + iw$ is analytic on a domain $D$, then $u$ and $w$ are harmonic.
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Cauchy-Riemann implies analyticity)}
+		Suppose $D$ is an open disk centered at $p$, and that $f = u + iw$ is a function from $D$ to $\mathbb{C}$. If the Cauchy-Riemann equations for $u$ and $w$ hold at $p$, then $f$ is analytic at $p$, and $f^{\prime}(p) = u_{x}(p) + iw_{x}(p)$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Harmonic conjugates always exist on disks)}
+		Suppose $D \subset \mathbb{C}$ is a disk, and that $u : D \rightarrow \mathbb{R}$ is harmonic. Then there is another function $w : D \rightarrow \mathbb{R}$ such that the function $f(z) = u(z) + iw(z)$ satisfies the Cauchy-Riemann equations.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Restrictions on Analytic Functions)}
+		Suppose $f = u + iw$ is an analytic function on a domain $D$.
+		\begin{enumerate}[label=\alph*.]
+			\item If $u$ is constant on $D$, then so is $f$.
+			\item If $u^2 + w^2$ is constant on $D$, then so is $f$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		If $\sum_{n=0}^{\infty} a_{n}(z - p)^{n}$ converges at $z$, then it converges absolutely at $w$ whenever $|w - p| < |z - p|$.
+	\end{theorem}
+	
+	\begin{corollary}
+		If a power series $\sum_{n=0}^{\infty} a_{n}(z - p)^{n}$ diverges at $z$, then it also diverges at any $w$ with $|w-p| > |z-p|$.
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Ratio and Root Tests)}
+		Consider the power series $$\sum_{n=0}^{\infty} a_{n}(z - p)^{n}$$.
+		\begin{enumerate}[label=\alph*.]
+			\item Suppose $\lim_{n \rightarrow \infty} \sqrt[n]{|a_{n}|}$ exists; call it $L$. If $L > 0$ then the radius of convergence is $\frac{1}{L}$; if $L = 0$ then the radius of convergence is infinite; if the limit is infinite, then the radius of convergence is 0.
+			\item Suppose $\lim_{n \rightarrow \infty} \frac{|a_{n+1}|}{|a_{n}|}$ exists; call it $L$. Then the radius of convergence is as above.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{lemma}
+		Suppose that the radius of convergence of $\sum a_{n}(z - p)^{n}$ is $R > 0$. Then the radius of convergence of $\sum n a_{n} (z-p)^{n-1}$ is at least $R$.
+	\end{lemma}
+	
+	\begin{theorem}
+		\emph{(Derivatives of power series)}
+		If a power series $\sum_{n=0}^{\infty} a_{n}(z - p)^{n}$ has radius of convergence $R > 0$ then we can define a function $f$ on the open disk $D$ of radius $R$ centered at $p$ by $f(z) = \sum_{n=0}^{\infty} a_{n}(z - p)^{n}$. Then:
+		\begin{enumerate}[label=\alph*.]
+			\item $f$ is analytic on $D$
+			\item $\forall z \in D, f^{\prime}(z)$ is given by the power series $\sum_{n=0}^{\infty} n a_{n}(z - p)^{n-1}$
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{corollary}
+		\emph{(Derivatives of power series)}
+		\begin{enumerate}[label=\alph*.]
+			\item Every derivative of $f$ exists and is given as a power series with radius of convergence at least $R$.
+			\item The power series for the derivatives can be found by termwise differentiation.
+			\item $$a_{n} = \frac{f^{n}(p)}{n!}$$
+			\item A power series with a positive radius of convergence is just a Taylor series:
+			$$\sum_{n=0}^{\infty} a_{n}(z - p)^{n} = \sum_{n=0}^{\infty} \frac{f^{n}(p)(z-p)^{n}}{n!}$$
+		\end{enumerate}
+	\end{corollary}
+	
+	\begin{lemma}
+		Suppose that $G$ is a parity-0 graph with at least one edge. Then $G$ contains a simple closed edge-path $L$ with at least one edge.
+	\end{lemma}
+	
+	\begin{theorem}
+		Suppose that $G$ is a parity-0 graph whose set of edges $E$ is nonempty. The $E$ is the disjoint union of simple closed edge-paths $\{L_{j}\}$.
+	\end{theorem}
+	
+	\begin{lemma}
+		If $D$ is a domain containing the closed line segment $K$ joining $p$ and $q$, there there is a positive constant $\epsilon > 0$ such that for any point $z \in K$, the ball of radius $\epsilon$ about $z$ is contained in $D$.
+	\end{lemma}
+	
+	\begin{theorem}
+		If $D$ is a simply connected domain and $f : D \rightarrow \mathbb{C}$ is analytic, then there is an analytic $g : D \rightarrow \mathbb{C}$ with $g^{\prime} = f$.
+	\end{theorem}
+	
+	\begin{lemma}
+		\emph{(Green analyticity lemma)}
+		Suppose that $D$ is a domain and that $f : D \rightarrow \mathbb{C}$ is analytic. Then at any point of $D$,
+		$$f_{x} + if_{y} = 0.$$
+	\end{lemma}
+	
+	\begin{theorem}
+		\emph{(Cauchy's Formula)}
+		Suppose $D \subset \mathbb{C}$ is a domain, that $f : D \rightarrow \mathbb{C}$ is analytic, and that $\gamma$ is a positively-oriented, piecewise smooth, simply connected curve in $D$, such that the inside of $\gamma$ is also in $D$. If $p$ is a point inside of $\gamma$, then:
+		$$\frac{1}{2\pi i} \int_{\gamma} \frac{f(z)}{z - p} dz = f(p).$$
+	\end{theorem}
+	
+	\begin{theorem}
+		For a triangle $\mathcal{T} = PQR$ (including its inside), the diameter is the length of its longest side.
+	\end{theorem}
+	
+	\begin{theorem}
+		Suppose $K_{n} \subset \mathbb{C}$ are closed nonempty sets, with $K_{n+1} \subset K_{n}$ for each $n$, and that the diameter of $K_{n}$ goes to $0$ as $n \rightarrow \infty$. Then, $\cup K_{n}$ is a single point.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Cauchy-Goursat Theorem)}
+		Suppose $D \subset \mathbb{C}$ is a domain, $f : D \rightarrow \mathbb{C}$ is analytic, and that $T$ is a triangular simple closed curve in $D$ whose inside is also in $D$. Then,
+		$$\int_{T}f dz = 0.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(General Cauchy Theorem)}
+		Suppose $D \subset \mathbb{C}$ is a simply connected domain, and that $f : D \rightarrow \mathbb{C}$ is analytic. Then,
+		\begin{enumerate}[label=\alph*.]
+			\item There is an analytic function $g : D \rightarrow \mathbb{C}$ such that $g^{\prime} = f$.
+			\item If $\gamma$ is a piecewise smooth closed curve in $D$, then $\int_{\gamma}f dz = 0$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Extending Cauchy's Theorem)}
+		Suppose $U \subset \mathbb{C}$ is open, $f : U \rightarrow \mathbb{C}$, and $f^{\prime}$ is continuous on $U$. For $p \in U$, choose $r > 0$ so that $B_{r}(p) \subset U$.
+		\begin{enumerate}[label=\alph*.]
+			\item There is a power series $\sum a_{n} (z-p)^{n}$ with radius of convergence at least $r$ such that $f(z) = \sum a_{n} (z-p)^{n}$ for every $z$ with $|z-p| < r$.
+			\item The coefficients $a_{n}$ are given by
+			$$a_{n} = \frac{1}{2 \pi i} \int_{\gamma} \frac{f(w)}{(w-p)^{n+1}} dw$$
+			where $\gamma$ is any counterclockwise circle centered at $p$ with radius $d < r$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(General Cauchy Formula)}
+		Suppose $p \in \mathbb{C}$, $r > 0$, and $f : U = B_{r}(p) \rightarrow \mathbb{C}$ analytic. Let $\gamma$ be a counterclockwise circle centered at p with radius $d < r$. Define
+		$$a_{n} = \frac{1}{2 \pi i} \int_{\gamma} \frac{f(w)}{(w-p)^{n+1}} dw.$$
+		Then $f(z) = \sum_{n=0}^{\infty} a_{n} (z-p)^{n}$ for every $z$ with $|z-p| < r$, and the radius of convergence of this power series is at least $r$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Liouville)}
+		If $f : \mathbb{C} \rightarrow \mathbb{C}$ is bounded and entire, then $f$ is constant.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Morera)}
+		Suppose $D$ is a domain, that $f : D \rightarrow \mathbb{C}$ is continuous, and that if $T$ is any triangle in $D$ whose inside is also in $D$, then the line integral of $f$ around $T$ is 0. Then $f$ is analytic on $D$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Removable singularities are removable)}
+		If f has a removable singularity at $p$, then it is possible to make $f$ become analytic at $p$ by redefining $f(p)$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Laurent series near poles)}
+		If f has a pole at $p$, then for any large positive integer $m$, $(z-p)^{m} f(z)$ has a removable singularity at $p$. The smallest such $m$ is called the \textbf{order} of the pole.
+	\end{theorem}
+	
+	\begin{theorem}
+		If $p$ is an essential singularity of $f$, then there exists a Laurent series for $f$
+		in powers of $(z-p)$, and it must contain arbitrarily high powers of $\frac{1}{(z-p)}$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Residues)}
+		Suppose $p$ is an isolated singularity of $f$. Then for all sufficiently small $r > 0$, the line integral of $f$ over the positively oriented circle of radius $r$ centered at $p$ is independent of $r$. 
+	\end{theorem}
+	
+	\begin{lemma}
+		\emph{(Residues at removable singularities)}
+		If $f$ has a removable singularity at $p$, then $\text{Res}(f;p) = 0$.
+	\end{lemma}
+	
+	\begin{lemma}
+		\emph{(Residues at poles)}
+		Suppose that $p$ is a pole of order $m$ for $f$. It is known that, for $z$ near $p$, $f(z)$ is given by a Laurent series
+		$$f(z) = \sum_{j=-m}^{\infty} a_{j} (z-p)^{j}$$.
+		Then $\text{Res(f;p)} = a_{-1}$.
+	\end{lemma}
+	
+	\begin{corollary}
+		If $p$ is a pole of order $m$ for $f$, and $g$ is the function that agrees with $(z-p)^{m} f(z)$ near $p$ and is analytic on a disc about $p$, then the Laurent coefficient $a_{-1}$ for $f$ is the coefficient of $(z-p)^{m-1}$ in the Taylor series for $g$:
+		$$a_{-1} = \frac{g^{(m-1)}(p)}{(m-1)!}$$.
+	\end{corollary}
+	
+	\begin{theorem}
+		\emph{(Residue Theorem)}
+		Suppose $D \subset \mathbb{C}$ is a simply connected domain and $f : D \rightarrow \mathbb{C}$ is analytic except for finitely many isolated singularities $p_{j}$. Suppose $\gamma$ is a positively oriented, piecewise smooth, simple closed curve in $D$ that does not hit any of the $p_{j}$. Let $U$ be the inside of $\gamma$. Then
+		$$\int_{\gamma}f(z) dz = 2 \pi i \sum_{p_{j} \in U}\text{Res}(f;p_{j}).$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Laurent series on annuli)}
+		Suppose $0 \leq r < R$ and that $f$ is analytic on the open annulus $A$ given by $r < |z| < R$. Then there are two analytic functions given by series:
+		\begin{enumerate}[label=\alph*.]
+			\item $f_{1}(z) = \sum_{n=0}^{\infty} a_{n} z^{n}$, converging on $|z| < R$
+			\item $f_{2}(z) = \sum_{n=1}^{\infty} \frac{b_{n}}{z_{n}}$
+		\end{enumerate}
+		such that $f(z) = f_{1}(z) + f_{2}(z)$ for each $z \in A$.
+	\end{theorem}
+	
+	\begin{corollary}
+		For any $b$ with $r < b < R$, if for each integer $n$ we set
+		$$a_{n} = \frac{1}{2 \pi i} \int_{|w| = b} \frac{f(w)}{w^{n+1}} dw$$,
+		then $f_{1}(z) = \sum_{n \geq 0} a_{n} z^{n}$ and $f_{2}(z) = \sum_{n \leq -1} a_{n} z^{n}$.
+	\end{corollary}
+	
+	\begin{lemma}
+		Suppose $D$ is a domain and $f: D \rightarrow \mathbb{C}$ is analytic except for finitely many poles $p_{j}$, of order $m_{j}$. Then there is an analytic function $g(z)$ on $D$ and for each $p_{j}$ a polynomial $h_{j}$ of degree $m_{j}$, with no constant term, such that on $D \ \{ p_{j} \}$,
+		$$f(z) = g(z) + \sum_{j} h_{j} \frac{1}{(z-p_{j})}$$
+	\end{lemma}
+	
+	\begin{theorem}
+		\emph{(Partial fractions for simple rational functions)}
+		Suppose $f(z) = \frac{P(z)}{Q(z)}$ is a simple rational function. Let $c_{n}$ be the $n^{th}$ root of $Q$. Then
+		$$f(z) = \sum_{n} \frac{\text{Res}(f; c_{n})}{z - c_{n}}.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Real integrals using residues)}
+		Suppose $P$ and $Q$ are \textbf{real} polynomials, with deg($Q$) $\geq$ $2 + \text{deg}(P)$, and that $Q$ has no real roots. Let $f(x) = \frac{P(x)}{Q(x)}$. Let $U$ be the set of roots of $Q$ that are in the upper half plane in $C$. Then
+		$$\int_{-\infty}^{\infty} f(x) dx = 2 \pi i \sum_{q \in U} \text{Res}(f; q).$$
+	\end{theorem}
+	
+	\begin{lemma}
+		\emph{(Jordan)}
+		Let $\gamma(t) = r e^{it}$ for $0 \leq t \leq \pi$. If $g(z)$ is continuous and $|g(z)| \leq B_{r}$ for all $z$ on $\gamma$, then $|\int_{\gamma} e^{iz} g(z) dz| \leq \pi B_{r}$.
+	\end{lemma}
+	
+	\begin{lemma}
+		Suppose $D \subset \mathbb{C}$ is a domain containing a point $p$, that $g$ is an analytic function on $D$ with $g(p) \neq 0$, and that $f(z) = (z-p)^{k}g(z)$ for some integer $k \neq 0$.
+		\begin{enumerate}[label=\alph*.]
+			\item If $k > 0$ then $f$ has a zero of order $k$ at $p$.
+			\item If $k < 0$ then $f$ has a pole of order $|k| = -k$ at $p$.
+			\item In either case, $p$ is a pole of $\frac{f^{\prime}}{f}$ of order $1$.
+			\item $\text{Res}(\frac{f^{\prime}}{f}; p) = k$.
+		\end{enumerate}
+	\end{lemma}
+	
+	\begin{theorem}
+		Suppose $D$ is a domain, $f : D \rightarrow \mathbb{C}$ is non-constant and analytic except at a finite set $P \subset D$ of poles. Let $Z$ be the set of $zeros$ of $f$ in $D$. Assume $\gamma : [a,b] \rightarrow D$ is a piecewise smooth, positively oriented, simple closed curve in $D$ that does not meet $P$ or $Z$, with the inside of $\gamma$ contained in $D$.
+		
+		\begin{enumerate}[label=\alph*.]
+			\item The number of zeros of $f$ inside $\gamma$ is finite.
+			\item $\frac{1}{2 \pi i} \int_{\gamma} \frac{f^{\prime}(z)}{f(z)} dz = N_{Z} - N_{P}$, where $N_{Z}$ is the sum of the orders of the zeros of $f$ inside $\gamma$, and $N_{p}$ is the sum of the orders of the poles of $f$ inside $\gamma$.
+		\end{enumerate}
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Argument Principle)}
+		Suppose $D$ is a domain, $f : D \rightarrow \mathbb{C}$ is non-constant and analytic except at a finite set $P \subset D$ of poles. Let $Z$ be the set of $zeros$ of $f$ in $D$. Assume $\gamma : [a,b] \rightarrow D$ is a piecewise smooth, positively oriented, simple closed curve in $D$ that does not meet $P$ or $Z$, with the inside of $\gamma$ contained in $D$. Suppose that $\alpha(t)$ is a continuous branch of $\text{arg}(f(\gamma(t)))$ that is defined on $[a,b]$. Then
+		$$\frac{\alpha(b) - \alpha(a)}{2 \pi} = \frac{1}{2 \pi i} \int_{\gamma} \frac{f^{\prime}(z)}{f(z)} dz = N_{Z} - N_{P}.$$
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Rouché)}
+		Suppose $f$ and $g$ are analytic on a domain $D$, containing a piecewise smooth simple closed curve $\gamma : [a,b] \rightarrow D$ and its inside. If $|g(z) - f(z)| < |f(z)|$ for every $z \in \gamma$, then, counted with multiplicity, $f$ and $g$ have the same number of zeros inside $\gamma$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Fundamental Theorem of Algebra)}
+		In $\mathbb{C}$, a polynomial of degree $n \geq 1$ has exactly $n$ roots (counted with multiplicity).
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Open Mapping Theorem)}
+		Suppose $D \subset \mathbb{C}$ is a domain and that $f: D \rightarrow \mathbb{C}$ is analytic. Then either $f(D)$ is a single point, or an open set.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Maximum Principle)}
+		Suppose $D \subset \mathbb{C}$ is a domain and $f : D \rightarrow \mathbb{C}$ is analytic and not constant. Then $|f|$ has no local maxima in $D$.
+	\end{theorem}
+	
+	\begin{theorem}
+		\emph{(Maximum Principle Version 2)}
+		Suppose $D \subset \mathbb{C}$ is a domain and $f : D \rightarrow \mathbb{C}$ is analytic on $D$ and not constant. Suppose also that $D$ is bounded, so that its closure (the union of $D$ and its boundary) is compact, and that $f$ is continuous on the closure of $D$. Then the following are all achieved only on the boundary of $D$:
+		\begin{enumerate}[label=\alph*.]
+			\item The maximum value of $|f|$.
+			\item The maximum and minimum values of $\Re{[f]}$.
+			\item The maximum and minimum values of $\Im{[f]}$.
+		\end{enumerate}
+	\end{theorem}
+	
+	
+\end{document}
